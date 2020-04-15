@@ -23,7 +23,7 @@ export default function App() {
 
   async function handleLikeRepository(id) {
     const response = await api.post(`repositories/${id}/like`);
-    
+
     setRepositories(repositories.map(repository => {
       if (repository.id === id)
         return response.data;
@@ -54,8 +54,8 @@ export default function App() {
                   style={styles.likeText}
                   testID={`repository-likes-${repository.id}`}
                 >
-                  {repository.like} curtida{repository.like > 1 ? 's' : ''}
-            </Text>
+                  {repository.likes} curtida{repository.likes > 1 ? 's' : ''}
+                </Text>
               </View>
 
               <TouchableOpacity
@@ -69,7 +69,7 @@ export default function App() {
           )}
         />
 
-        </SafeAreaView>
+      </SafeAreaView>
     </>
   );
 }
